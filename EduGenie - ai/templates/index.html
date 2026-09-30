@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EduGenie AI Companion</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🔮 EduGenie AI</h1>
+        <p>Your Local Learning Assistant</p>
+
+        <div class="section">
+            <h2>Ask Q&A</h2>
+            <form action="/qa" method="post">
+                <input type="text" name="question" placeholder="Ask a question..." required>
+                <button type="submit">Ask Question</button>
+            </form>
+        </div>
+
+        <div class="section">
+            <h2>Concept Explanation</h2>
+            <form action="/explain" method="post">
+                <input type="text" name="concept" placeholder="Concept to explain..." required>
+                <button type="submit">Explain Concept</button>
+            </form>
+        </div>
+
+        <div class="section">
+            <h2>Generate Quiz</h2>
+            <form action="/quiz" method="post">
+                <input type="text" name="topic" placeholder="Quiz topic..." required>
+                <button type="submit">Generate Quiz</button>
+            </form>
+        </div>
+
+        <div class="section">
+            <h2>Summarizer</h2>
+            <form action="/summarize" method="post">
+                <textarea name="text" rows="4" placeholder="Paste text here..." required></textarea>
+                <button type="submit">Summarize</button>
+            </form>
+        </div>
+
+        <div class="section">
+            <h2>Learning Path</h2>
+            <form action="/learn" method="post">
+                <input type="text" name="topic" placeholder="Subject or skill to learn..." required>
+                <button type="submit">Get Roadmap</button>
+            </form>
+        </div>
+
+        {% if result %}
+        <div class="output">
+            <h3>Output Result:</h3>
+            <pre>{{ result }}</pre>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
